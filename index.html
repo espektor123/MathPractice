@@ -12,7 +12,7 @@
 .rainbow {
   
    /* Font options */
-  font-family: 'Pacifico', cursive;
+  font-family: 'Comic Sans MS';
   text-shadow: 2px 2px 4px #000000;
   font-size:40px;
   
@@ -43,8 +43,7 @@
 
 
 h1 {text-align: center;}
-h2 {text-align: center;}
-div {text-align: center;}
+h2 {text-align: center; margin: 0;}
 </style>
 <script>
 let digits = [2,3,4,5,6,7,8,9,10,11,12];
@@ -64,8 +63,8 @@ score = 0;
 correct = 0;
 mistake = 0;
 
-  document.getElementById("TotalSolved").innerHTML = "Problems Solved: " + problems_solved;
-  document.getElementById("Score").innerHTML = "Score: " + correct + " / " + problems_solved;
+  document.getElementById("TotalSolved").innerHTML = problems_solved;
+  document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
   document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
   document.getElementById("answer").focus();
   
@@ -95,8 +94,8 @@ function enter_hit() {
 			correct = correct - 1;
 		}
 		
-		document.getElementById("TotalSolved").innerHTML = "Problems Solved: " + problems_solved;
-		document.getElementById("Score").innerHTML = "Score: " + correct + " / " + problems_solved;
+		document.getElementById("TotalSolved").innerHTML = problems_solved;
+		document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
 
 		rand1 = digits[Math.floor(Math.random() * digits.length)];
 		rand2 = digits[Math.floor(Math.random() * digits.length)];
@@ -126,25 +125,36 @@ location.reload();
 
 <h1 class="rainbow1">Multiplication Fun</h1>
 
-<h2 style="color:#f2b780" id="TotalSolved">Problems Solved: 0</h2>
-<h2 style="color:#f2b780" id="Score">Score: 0 / 0</h2>
-<br>
-<br>
-<div>
-<h2  style="color:#FBEEC1">Solve the following:</h2>
-<h2 style="color:#FBEEC1" id="random_math"></h2>
+<div style="width: max-content; margin:0 auto;">
+	<div style="width: max-content; float: left; padding: 20px;">
+		<h2 style="text-align:left; color:#f2b780;width: max-content;">Solved: </h2>
+		<h2 style="text-align:left; color:#f2b780;width: max-content;">Score: </h2>
+	</div>
+	<div style="width: max-content; float: right; padding: 20px;">
+		<h2 style="text-align:left; color:#f2b780;width: max-content;" id="TotalSolved">0</h2>
+		<h2 style="text-align:left; color:#f2b780;width: max-content;" id="Score">0 / 0</h2>
+	</div>
+</div>
+
+<br> 
+
+<div style="text-align:center; margin:0;">
+<p  style="font-size:28px; color:#FBEEC1">Solve the following:</p>
+<p style="font-size:28px; color:#FBEEC1" id="random_math"></p>
+</div>
 
 
+<div style="text-align:center;">
 <input inputmode="numeric" autocomplete="off" id="answer" style="text-align:center; font-size:25px;;"></input>
 
 <br>
 <button style="margin: 16px; padding: 16px; background-color: #5ccdcd; color: White; border: none;border-radius: 4px;font-size: 14px" type="button" onclick="enter_hit()"><b>Press Enter or Click!</b></button>
 
 <h2 class="rainbow" id="answer_status"></h2>
+
 <br>
 <br>
-<br>
-<br>
+
 <button style="margin: 16px; padding: 16px; background-color: LightSkyBlue; color: Black; border: none;border-radius: 4px;font-size: 18px" type="button" onclick="reset()">Reset Practice</button>
 </div>
 
