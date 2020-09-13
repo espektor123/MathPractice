@@ -62,20 +62,32 @@ document.addEventListener('keypress', function (e)	 {
     }
 });
 
+function change_max(){
+	first_mult = document.getElementById("first_mult").value
+	sec_mult = document.getElementById("sec_mult").value
+	rand1 = Math.floor(Math.random() * first_mult) + 2
+	rand2 = Math.floor(Math.random() * sec_mult) + 2
+	document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
+	console.log(first_mult, sec_mult)
+}
+
 function onload() {
 
-rand1 = digits[Math.floor(Math.random() * digits.length)];
-rand2 = digits[Math.floor(Math.random() * digits.length)];
 problems_solved = 0;
 score = 0;
 correct = 0;
 mistake = 0;
+first_mult = 12
+sec_mult = 12
+rand1 = Math.floor(Math.random() * first_mult) + 2
+rand2 = Math.floor(Math.random() * sec_mult) + 2
 
-  document.getElementById("TotalSolved").innerHTML = problems_solved;
-  document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
-  document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
-  document.getElementById("answer").focus();
-  
+
+document.getElementById("TotalSolved").innerHTML = problems_solved;
+document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
+document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
+document.getElementById("answer").focus();
+
   
 }
 
@@ -84,6 +96,7 @@ mistake = 0;
 function enter_hit() {
   var correct_answer = rand1*rand2;
   var answer_pull = document.getElementById('answer');
+
   
   if (answer_pull.value.length != 0){
 	document.getElementById("answer_status").innerHTML = "";
@@ -105,8 +118,8 @@ function enter_hit() {
 		document.getElementById("TotalSolved").innerHTML = problems_solved;
 		document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
 
-		rand1 = digits[Math.floor(Math.random() * digits.length)];
-		rand2 = digits[Math.floor(Math.random() * digits.length)];
+		rand1 = Math.floor(Math.random() * first_mult-1) + 2
+		rand2 = Math.floor(Math.random() * sec_mult-1) + 2
 		document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
 		mistake = 0;
 	}
@@ -126,10 +139,10 @@ location.reload();
 </script>
 
 <body style="background-color:IndianRed; font-family:'Roboto', sans-serif" onload="onload()">
+/*  */
+<h1 class="rainbow1" style="margin-bottom: 0;">Multiplication Fun</h1>
 
-<h1 class="rainbow1" style="margin-bottom: -5px;">Multiplication Fun</h1>
-
-<div style="width: max-content; margin:0 auto;">
+<div style="width: max-content; margin:0 auto; clear:both;">
 	<div style="font-size:20x; width: max-content; float: left; padding: 20px;">
 		<h2 style="text-align:left; color:#f2b780;width: max-content;">Solved: </h2>
 		<h2 style="text-align:left; color:#f2b780;width: max-content;">Score: </h2>
@@ -140,8 +153,15 @@ location.reload();
 	</div>
 </div>
 
+<div style="color:#f2b780; clear:both; width: max-content; margin:0 auto;">
+		<h2 style="text-align:left; width: max-content;">Largest Multiplication:</h2>
+	<div style="width: max-content; margin:0 auto;  font-size:20x; width: max-content; float: center; padding: 20px;">
+		<input inputmode="numeric"  value="12" autocomplete="off" onchange="change_max()" id="first_mult" style="text-align:center;font-size:20px; width:50px"></input> X <input onchange="change_max()" value="12" style="text-align:center; width:50px; font-size:20px;" inputmode="numeric" autocomplete="off" id="sec_mult"></input>
+	</div>
+</div>
+
  
-<div style="text-align:center; margin: 20px;">
+<div style="clear:both;text-align:center; margin: 20px;">
 <p  style="font-size:28px; color:#FBEEC1;margin:5px">Solve the following:</p>
 <p style="font-size:28px; color:#FBEEC1;margin:5px" id="random_math"></p>
 </div>
@@ -149,7 +169,7 @@ location.reload();
 
 <div style="text-align:center;">
 
-<input inputmode="numeric" autocomplete="off" id="answer" style="text-align:center; font-size:25px;;"></input>
+<input inputmode="numeric" autocomplete="off" id="answer" style="text-align:center; font-size:25px;"></input>
 
 <br>
 <button style="font-family:'Roboto', sans-serif; margin: 16px; padding: 16px; background-color: #5ccdcd; color: White; border: none;border-radius: 4px;font-size: 16px" type="button" onclick="enter_hit()"><b>Press Enter or Click!</b></button>
