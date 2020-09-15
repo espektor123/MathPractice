@@ -65,8 +65,8 @@ document.addEventListener('keypress', function (e)	 {
 function change_max(){
 	first_mult = document.getElementById("first_mult").value
 	sec_mult = document.getElementById("sec_mult").value
-	rand1 = Math.floor(Math.random() * first_mult) + 2
-	rand2 = Math.floor(Math.random() * sec_mult) + 2
+	rand1 = Math.floor(Math.random() * first_mult) + 1
+	rand2 = Math.floor(Math.random() * sec_mult) + 1
 	document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
 	console.log(first_mult, sec_mult)
 }
@@ -79,8 +79,8 @@ correct = 0;
 mistake = 0;
 first_mult = 12
 sec_mult = 12
-rand1 = Math.floor(Math.random() * first_mult) + 2
-rand2 = Math.floor(Math.random() * sec_mult) + 2
+rand1 = Math.floor(Math.random() * first_mult) + 1
+rand2 = Math.floor(Math.random() * sec_mult) + 1
 
 
 document.getElementById("TotalSolved").innerHTML = problems_solved;
