@@ -65,38 +65,49 @@ document.addEventListener('keypress', function (e)	 {
 function change_max(){
 	first_mult = document.getElementById("first_mult").value
 	sec_mult = document.getElementById("sec_mult").value
-	rand1 = Math.floor(Math.random() * first_mult) + 1
-	rand2 = Math.floor(Math.random() * sec_mult) + 1
-	document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
-	console.log(first_mult, sec_mult)
+	function_select = [option_one,option_two];
+	function_select[Math.floor(Math.random() * function_select.length)]();
 }
+
 
 function onload() {
 
-problems_solved = 0;
-score = 0;
-correct = 0;
-mistake = 0;
-first_mult = 12
-sec_mult = 12
-rand1 = Math.floor(Math.random() * first_mult) + 1
-rand2 = Math.floor(Math.random() * sec_mult) + 1
+	problems_solved = 0;
+	score = 0;
+	correct = 0;
+	mistake = 0;
+	first_mult = 12
+	sec_mult = 12
 
+	function_select = [option_one,option_two];
+	function_select[Math.floor(Math.random() * function_select.length)]();
 
-document.getElementById("TotalSolved").innerHTML = problems_solved;
-document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
-document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
-document.getElementById("answer").focus();
-
-  
+	document.getElementById("TotalSolved").innerHTML = problems_solved;
+	document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
+	document.getElementById("answer").focus();
 }
 
 
+function option_one() {
+	rand1 = Math.floor(Math.random() * first_mult) + 1
+	rand2 = Math.floor(Math.random() * sec_mult) + 1
+	document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
+	correct_answer = rand1*rand2;
+	console.log("Option 1");
+}
+
+function option_two() {
+	rand1 = Math.floor(Math.random() * first_mult) + 1
+	rand2 = Math.floor(Math.random() * sec_mult) + 1
+	left_side = rand1 + "  *  ?";
+	document.getElementById("random_math").innerHTML = left_side + " = " + rand1*rand2;
+	correct_answer = rand2;
+	console.log("Option 2");
+}
 
 function enter_hit() {
-  var correct_answer = rand1*rand2;
-  var answer_pull = document.getElementById('answer');
 
+  answer_pull = document.getElementById('answer');
   
   if (answer_pull.value.length != 0){
 	document.getElementById("answer_status").innerHTML = "";
@@ -117,10 +128,10 @@ function enter_hit() {
 		
 		document.getElementById("TotalSolved").innerHTML = problems_solved;
 		document.getElementById("Score").innerHTML = correct + " / " + problems_solved;
-
-		rand1 = Math.floor(Math.random() * first_mult-1) + 2
-		rand2 = Math.floor(Math.random() * sec_mult-1) + 2
-		document.getElementById("random_math").innerHTML = rand1 + " * " + rand2;
+		
+		function_select = [option_one,option_two];
+		function_select[Math.floor(Math.random() * function_select.length)]();
+		
 		mistake = 0;
 	}
   
@@ -136,6 +147,7 @@ function enter_hit() {
 function reset() {
 location.reload();
 }
+
 </script>
 
 <body style="background-color:IndianRed; font-family:'Roboto', sans-serif" onload="onload()">
