@@ -62,13 +62,6 @@ document.addEventListener('keypress', function (e)	 {
     }
 });
 
-function change_max(){
-	first_mult = document.getElementById("first_mult").value
-	sec_mult = document.getElementById("sec_mult").value
-	function_select = [option_one,option_two];
-	function_select[Math.floor(Math.random() * function_select.length)]();
-}
-
 
 function onload() {
 
@@ -162,13 +155,6 @@ location.reload();
 	<div style="width: max-content; float: right; padding: 20px;">
 		<h2 style="text-align:left; color:#f2b780;width: max-content;" id="TotalSolved">0</h2>
 		<h2 style="text-align:left; color:#f2b780;width: max-content;" id="Score">0 / 0</h2>
-	</div>
-</div>
-
-<div style="color:#f2b780; clear:both; width: max-content; margin:0 auto;">
-		<h2 style="text-align:left; width: max-content;">Largest Multiplication:</h2>
-	<div style="width: max-content; margin:0 auto;  font-size:20x; width: max-content; float: center; padding: 20px;">
-		<input inputmode="numeric"  value="12" autocomplete="off" onchange="change_max()" id="first_mult" style="text-align:center;font-size:20px; width:50px"></input> X <input onchange="change_max()" value="12" style="text-align:center; width:50px; font-size:20px;" inputmode="numeric" autocomplete="off" id="sec_mult"></input>
 	</div>
 </div>
 
